@@ -16,10 +16,8 @@ server.post('/login', auth_1.handleAuthentication);
 // Use default router
 server.use(router);
 var options = {
-    //cert: fs.readFileSync('../../../dev/meat-app/backend/keys/cert.perm'),
-    //key: fs.readFileSync('../../../dev/meat-app/backend/keys/key.perm')
-    cert: '',
-    key: ''
+    cert: fs.readFileSync('./backend/keys/cert.perm'),
+    key: fs.readFileSync('./backend/keys/key.perm')
 };
 https.createServer(options, server).listen(3001, function () {
     console.log('JSON Server is running https://localhost:3001');
